@@ -49,8 +49,15 @@ def StartGradientDescent(theta, x, y, learningRate, num):
         theta = GetNewThetas(theta, grad, learningRate)   #梯度下降更新参数
     
     #绘制图像
+    PlotResults(cost, x, y, theta)
+    
+#绘制图像，使结果可视化
+def PlotResults(cost, x, y, theta):
+    num = cost.shape
+    num = num[0]
     plt.figure("Cost")
-    plt.plot(cost)
+    plt.plot(np.linspace(1, num, num),cost)
+    plt.scatter(np.linspace(1, num, num),cost)
     plt.title('Cost')
     
     plt.figure('Graphic')
